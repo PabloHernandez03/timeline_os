@@ -20,7 +20,7 @@ export default function DashBoardView() {
     useEffect(() => {
         const interval = setInterval(() => {
             nextSlide();
-        }, 3000); // Cambiar cada 3 segundos
+        }, 5000); // Cambiar cada 5 segundos
         return () => clearInterval(interval);
     }, [currentIndex]);
 
@@ -50,35 +50,32 @@ export default function DashBoardView() {
 
     return (
         <>
-            {/* Sección inicial */}
-            <div className="">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div className="col-span-1 p-12 bg-[#050404] rounded-3xl">
-                        <h2 className="text-5xl font-bold text-start text-[#F7F6F6]">
-                            La mejor calidad, al mejor precio
-                        </h2>
-                        <div>
-                            <p className="text-[#F7F6F6] mt-6 leading-8 text-start">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla tempora ipsam alias
-                                tenetur veritatis quidem, ad assumenda exercitationem harum eum, ipsum tempore cumque,
-                                quaerat enim officiis non magnam nam possimus Lorem ipsum, dolor sit amet consectetur
-                                adipisicing elit. Nulla tempora ipsam alias tenetur veritatis quidem, ad assumenda
-                                exercitationem harum eum.
-                            </p>
-                        </div>
+            {/* Hero Section */}
+            <div className="text-[#F7F6F6] py-8 px-8">
+                <div className="container mx-auto flex flex-col md:flex-row items-center">
+                    <div className="md:w-1/2 mb-8 md:mb-0">
+                        <h1 className="text-5xl font-bold mb-6">La mejor calidad, al mejor precio</h1>
+                        <p className="text-lg mb-6">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus repellat nostrum at
+                            culpa, voluptatem veniam adipisci fugiat magni libero facere.
+                        </p>
                     </div>
-                    <div className="col-span-1 p-8 flex justify-center items-center bg-[#050404] rounded-3xl">
-                        <img className="w-8/12 rounded-e-3xl" src="logo_principal.avif" alt="Logo Principal" />
+                    <div className="md:w-1/2 flex justify-center">
+                        <img
+                            className="w-2/3 rounded-xl shadow-xl"
+                            src="logo_principal.avif"
+                            alt="Logo Principal"
+                        />
                     </div>
                 </div>
             </div>
 
-            {/* Carrusel de opiniones */}
-            <div className="w-full relative mt-12">
-                <h2 className="text-4xl font-bold text-center text-[#050404] mb-8">Opiniones de Clientes</h2>
+            {/* Carrusel de Opiniones */}
+            <div className="container mx-auto py-16 px-8">
+                <h2 className="text-4xl font-bold text-center mb-12 text-[#F7F6F6]">Opiniones de Clientes</h2>
 
                 <div
-                    className="w-full overflow-hidden"
+                    className="relative overflow-hidden"
                     onTouchStart={handleTouchStart}
                     onTouchEnd={handleTouchEnd}
                 >
@@ -89,37 +86,40 @@ export default function DashBoardView() {
                         {opiniones.map((review, index) => (
                             <div
                                 key={index}
-                                className="min-w-full p-6 bg-[#F7F6F6] flex flex-col items-center rounded-3xl shadow-lg"
+                                className="min-w-full p-8 bg-[#050404] flex flex-col items-center rounded-lg shadow-lg"
                             >
-                                <h3 className="text-2xl font-semibold text-[#050404]">{review.name}</h3>
-                                <p className="mt-4 text-center text-[#050404]">{review.opinion}</p>
+                                <h3 className="text-xl font-semibold text-[#F7F6F6]">{review.name}</h3>
+                                <p className="mt-4 text-center text-[#F7F6F6]">{review.opinion}</p>
                             </div>
                         ))}
                     </div>
+
+                    {/* Botones de Navegación */}
+                    <button
+                        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-[#F7F6F6] text-[#050404] p-3 rounded-full shadow-lg hover:bg-[#F7F6F6]"
+                        onClick={prevSlide}
+                    >
+                        &#8249;
+                    </button>
+                    <button
+                        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-[#F7F6F6] text-[#050404] p-3 rounded-full shadow-lg hover:bg-[#F7F6F6]"
+                        onClick={nextSlide}
+                    >
+                        &#8250;
+                    </button>
                 </div>
 
-                {/* Botones de navegación */}
-                <button
-                    className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-[#050404] text-white p-3 rounded-full"
-                    onClick={prevSlide}
-                >
-                    &#8249;
-                </button>
-                <button
-                    className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-[#050404] text-white p-3 rounded-full"
-                    onClick={nextSlide}
-                >
-                    &#8250;
-                </button>
-
                 {/* Indicadores */}
-                <div className="flex justify-center mt-4 space-x-2">
+                <div className="flex justify-center mt-6 space-x-2">
                     {opiniones.map((_, index) => (
                         <span
                             key={index}
-                            className={`w-3 h-3 rounded-full ${
-                                index === currentIndex ? "bg-[#050404]" : "bg-[#F7F6F6]"
+                            className={`w-4 h-4 rounded-full cursor-pointer transition-all duration-300 ${
+                                index === currentIndex
+                                    ? "bg-blue-600 scale-125"
+                                    : "bg-gray-300 hover:bg-gray-400"
                             }`}
+                            onClick={() => setCurrentIndex(index)}
                         ></span>
                     ))}
                 </div>
