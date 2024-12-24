@@ -1,5 +1,6 @@
 import { useEffect, useState, TouchEvent } from "react";
 import example from "@/img/orden.png";
+import fondo_titulo from "@/img/fondo_titulo.svg";
 
 interface Opinion {
     name: string;
@@ -72,16 +73,19 @@ export default function DashBoardView() {
             </div>
 
             <div className="text-center">
-                <h2 className="px-4 py-3 rounded-2xl inline-block text-4xl font-bold text-center mb-10 text-[#F7F6F6] bg-black" >Ordenes realizadas</h2>
+                <h2 className="px-4 py-6 pt-2 rounded-2xl inline-block text-4xl font-bold text-center mb-10 text-[#F7F6F6]" style={{
+                    backgroundImage: `url(${fondo_titulo})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    }} >Ordenes realizadas</h2>
 
-                <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-2 md:gap-16 gap-8 items-center justify-items-center">
-                    <img src={example} alt="s" />
-                    <img src={example} alt="s" />
-                    <img src={example} alt="s" />
-                    <img src={example} alt="s" />
-                    <img src={example} alt="s" />
-                    <img src={example} alt="s" />
-                    <img src={example} alt="s" />
+                <div className="flex flex-wrap justify-center gap-12">
+                    <img src={example} alt="s" className="w-1/3 md:w-1/4 lg:w-1/5" />
+                    <img src={example} alt="s" className="w-1/3 md:w-1/4 lg:w-1/5" />
+                    <img src={example} alt="s" className="w-1/3 md:w-1/4 lg:w-1/5" />
+                    <img src={example} alt="s" className="w-1/3 md:w-1/4 lg:w-1/5" />
+                    <img src={example} alt="s" className="w-1/3 md:w-1/4 lg:w-1/5" />
+                    <img src={example} alt="s" className="w-1/3 md:w-1/4 lg:w-1/5" />
                 </div>
             </div>
 
