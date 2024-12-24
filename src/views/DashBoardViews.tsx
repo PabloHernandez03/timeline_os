@@ -1,4 +1,5 @@
 import { useEffect, useState, TouchEvent } from "react";
+import example from "@/img/orden.png";
 
 interface Opinion {
     name: string;
@@ -51,7 +52,7 @@ export default function DashBoardView() {
     return (
         <>
             {/* Hero Section */}
-            <div className="text-[#F7F6F6] py-8 px-8">
+            <div className="text-[#F7F6F6] py-8 px-4">
                 <div className="container mx-auto flex flex-col md:flex-row items-center">
                     <div className="md:w-1/2 mb-8 md:mb-0">
                         <h1 className="text-5xl font-bold mb-6">La mejor calidad, al mejor precio</h1>
@@ -70,9 +71,23 @@ export default function DashBoardView() {
                 </div>
             </div>
 
+            <div className="text-center">
+                <h2 className="px-4 py-3 rounded-2xl inline-block text-4xl font-bold text-center mb-10 text-[#F7F6F6] bg-black" >Ordenes realizadas</h2>
+
+                <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-2 md:gap-16 gap-8 items-center justify-items-center">
+                    <img src={example} alt="s" />
+                    <img src={example} alt="s" />
+                    <img src={example} alt="s" />
+                    <img src={example} alt="s" />
+                    <img src={example} alt="s" />
+                    <img src={example} alt="s" />
+                    <img src={example} alt="s" />
+                </div>
+            </div>
+
             {/* Carrusel de Opiniones */}
-            <div className="container mx-auto py-16 px-8">
-                <h2 className="text-4xl font-bold text-center mb-12 text-[#F7F6F6]">Opiniones de Clientes</h2>
+            <div className="container mx-auto py-16 px-4">
+                <h2 className="text-4xl font-bold text-center mb-10 text-[#F7F6F6]">Opiniones de Clientes</h2>
 
                 <div
                     className="relative overflow-hidden"
@@ -86,7 +101,7 @@ export default function DashBoardView() {
                         {opiniones.map((review, index) => (
                             <div
                                 key={index}
-                                className="min-w-full p-8 bg-[#050404] flex flex-col items-center rounded-lg shadow-lg"
+                                className="min-w-full p-6 bg-[#050404] flex flex-col items-center rounded-3xl shadow-lg"
                             >
                                 <h3 className="text-xl font-semibold text-[#F7F6F6]">{review.name}</h3>
                                 <p className="mt-4 text-center text-[#F7F6F6]">{review.opinion}</p>
@@ -94,34 +109,37 @@ export default function DashBoardView() {
                         ))}
                     </div>
 
-                    {/* Botones de Navegación */}
+                </div>
+
+                {/* Indicadores */}
+                <div className="p-4 flex justify-center items-center mt-6 space-x-4">
+
                     <button
-                        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-[#F7F6F6] text-[#050404] p-3 rounded-full shadow-lg hover:bg-[#F7F6F6]"
+                        className="transform bg-[#F7F6F6] text-[#050404] p-2 rounded-full shadow-lg hover:bg-[#F7F6F6]"
                         onClick={prevSlide}
                     >
                         &#8249;
                     </button>
-                    <button
-                        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-[#F7F6F6] text-[#050404] p-3 rounded-full shadow-lg hover:bg-[#F7F6F6]"
-                        onClick={nextSlide}
-                    >
-                        &#8250;
-                    </button>
-                </div>
-
-                {/* Indicadores */}
-                <div className="flex justify-center mt-6 space-x-2">
+                    
                     {opiniones.map((_, index) => (
                         <span
                             key={index}
                             className={`w-4 h-4 rounded-full cursor-pointer transition-all duration-300 ${
                                 index === currentIndex
-                                    ? "bg-blue-600 scale-125"
+                                    ? "bg-black scale-125"
                                     : "bg-gray-300 hover:bg-gray-400"
                             }`}
                             onClick={() => setCurrentIndex(index)}
                         ></span>
                     ))}
+                    {/* Botones de Navegación */}
+                
+                    <button
+                        className="transform bg-[#F7F6F6] text-[#050404] p-2 rounded-full shadow-lg hover:bg-[#F7F6F6]"
+                        onClick={nextSlide}
+                    >
+                        &#8250;
+                    </button>
                 </div>
             </div>
         </>

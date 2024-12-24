@@ -7,7 +7,7 @@ export default function NavMenu() {
 
   return (
     <Popover className="relative">
-      <Popover.Button className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 p-1 rounded-lg bg-[#050404] hover:border-[2px]">
+      <Popover.Button className="inline-flex items-center gap-x-1 text-sm font-semibold leading-6 p-1 rounded-lg bg-[#050404] hover:border-white box-border border-transparent border-[2px]">
         <Bars3Icon className='w-8 h-8 text-[#F7F6F6] ' />
       </Popover.Button>
 
@@ -20,8 +20,8 @@ export default function NavMenu() {
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 translate-y-1"
       >
-        <Popover.Panel className="absolute left-1/2 z-10 mt-5 flex w-screen lg:max-w-min -translate-x-1/2 lg:-translate-x-48">
-          <div className="w-full lg:w-56 shrink rounded-xl bg-[#F7F6F6] p-4 text-sm font-semibold leading-6 text-zinc-700 shadow-lg ring-1 ring-gray-900/5 ps-6">
+        <Popover.Panel className="absolute left-1/2 z-10 mt-5 flex w-56 -translate-x-52">
+          <div className="w-56 shrink rounded-xl bg-[#F7F6F6] p-4 text-sm font-semibold leading-6 text-zinc-700 shadow-lg ring-1 ring-gray-900/5 ps-6">
             <Link
               to='/'
               className='block p-2 hover:text-[#050404] transition-transform duration-300 ease-in-out transform hover:scale-110'
@@ -36,7 +36,7 @@ export default function NavMenu() {
             >Contactanos</Link>
             <Link
               to='/pedidos'
-              className='block p-2 hover:text-[#050404] transition-transform duration-300 ease-in-out transform hover:scale-110 '
+              className='block p-2 hover:text-[#050404] transition-transform duration-300 ease-in-out transform hover:scale-110'
             >Pedidos completados</Link>
           </div>
         </Popover.Panel>

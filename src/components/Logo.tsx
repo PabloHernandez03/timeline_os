@@ -4,12 +4,12 @@ export default function Logo() {
   return (
     <>
 
-      <Link
+      <Link 
         to='/'
-        className='block p-2'
+        className='block p-0 m-0 outline-none border-none decoration-none'
       >
         <img 
-          className="transition-transform duration-300 ease-in-out transform hover:scale-110" 
+          className="ease-in-out transform hover:scale-110 p-0 m-0 border-none outline-none" 
           src="/logo.svg" 
           alt="Logotipo" 
         />
