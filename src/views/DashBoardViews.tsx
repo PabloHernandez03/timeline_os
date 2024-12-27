@@ -1,6 +1,6 @@
 import { useEffect, useState, TouchEvent } from "react";
-import example from "@/img/orden.png";
-import fondo_titulo from "@/img/fondo_titulo.svg";
+import example from "/img/orden.png";
+import fondo_titulo from "/img/fondo_titulo.svg";
 
 interface Opinion {
     name: string;
@@ -73,7 +73,7 @@ export default function DashBoardView() {
             </div>
 
             <div className="text-center">
-                <h2 className="px-4 py-6 pt-2 rounded-2xl inline-block text-4xl font-bold text-center mb-10 text-[#F7F6F6]" style={{
+                <h2 className="py-6 pt-2 inline-block text-4xl font-bold mb-10 text-[#F7F6F6]" style={{
                     backgroundImage: `url(${fondo_titulo})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
@@ -86,12 +86,17 @@ export default function DashBoardView() {
                     <img src={example} alt="s" className="w-1/3 md:w-1/4 lg:w-1/5" />
                     <img src={example} alt="s" className="w-1/3 md:w-1/4 lg:w-1/5" />
                     <img src={example} alt="s" className="w-1/3 md:w-1/4 lg:w-1/5" />
+
                 </div>
             </div>
 
             {/* Carrusel de Opiniones */}
-            <div className="container mx-auto py-16 px-4">
-                <h2 className="text-4xl font-bold text-center mb-10 text-[#F7F6F6]">Opiniones de Clientes</h2>
+            <div className="container mx-auto py-16 px-4 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold inline-block mb-10 text-[#F7F6F6]"style={{
+                    backgroundImage: `url(${fondo_titulo})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    }}>Opiniones de Clientes</h2>
 
                 <div
                     className="relative overflow-hidden"
