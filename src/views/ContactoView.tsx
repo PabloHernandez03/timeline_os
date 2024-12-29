@@ -42,14 +42,14 @@ export default function ContactoView() {
               className="transition-transform duration-300 ease-in-out transform hover:scale-110">
               <div className="flex justify-center gap-2 items-center">
                 <FontAwesomeIcon icon={faInstagram} size="3x" className="bg-gradient-to-br from-pink-500 to-blue-500 rounded-2xl font-bold"/>
-                <p className='text-xl font-bold'>blessed_style_oficial</p>
+                <p className='text-xl font-bold'>blessed_style_oficial_</p>
               </div>
             </Link>
           </div>
 
           <div className='flex justify-center py-2 gap-2 items-center '>
             <Link to="mailto:blessedstyle@gmail.com"
-              className="transition-transform duration-300 ease-in-out transform hover:scale-110">
+              className="transition-transform duration-300 ease-in-out transform hover:scale-105">
                 <div className="flex justify-center gap-2 items-center">
                   <FontAwesomeIcon icon={faEnvelope} size="3x"/>
                   <p className='text-xl font-bold'>bleessedstyle@gmail.com</p>
