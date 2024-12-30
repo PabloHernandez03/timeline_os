@@ -1,10 +1,14 @@
 import { useEffect, useState, TouchEvent } from "react";
-import example from "/img/orden.png";
 import fondo_titulo from "/img/fondo_titulo.svg";
 
 interface Opinion {
     name: string;
     opinion: string;
+}
+
+interface Orden {
+    image: string;
+    alt: string;
 }
 
 export default function DashBoardView() {
@@ -16,19 +20,56 @@ export default function DashBoardView() {
         { name: "Luis Fernández", opinion: "Servicio al cliente excepcional y productos de alta calidad." },
     ];
 
+    const ordenes: Orden[] = [
+        { image: "/img/ordenes/orden01.avif", alt: "Orden 01" },
+        { image: "/img/ordenes/orden02.avif", alt: "Orden 02" },
+        { image: "/img/ordenes/orden03.avif", alt: "Orden 03" },
+        { image: "/img/ordenes/orden04.avif", alt: "Orden 04" },
+        { image: "/img/ordenes/orden05.avif", alt: "Orden 05" },
+        { image: "/img/ordenes/orden06.avif", alt: "Orden 06" },
+        { image: "/img/ordenes/orden07.avif", alt: "Orden 07" },
+        { image: "/img/ordenes/orden08.avif", alt: "Orden 08" },
+        { image: "/img/ordenes/orden09.avif", alt: "Orden 09" },
+        { image: "/img/ordenes/orden10.avif", alt: "Orden 10" },
+        { image: "/img/ordenes/orden11.avif", alt: "Orden 11" },
+        { image: "/img/ordenes/orden12.avif", alt: "Orden 12" },
+        { image: "/img/ordenes/orden13.avif", alt: "Orden 13" },
+        { image: "/img/ordenes/orden14.avif", alt: "Orden 14" },
+    ];
     const [currentIndex, setCurrentIndex] = useState<number>(0);
+    const [currentIndexImage, setCurrentIndexImage] = useState<number>(0);
+    const [intervalo, setIntervalo] = useState(4);
 
     // Movimiento automático
     useEffect(() => {
         const interval = setInterval(() => {
             nextSlide();
+            nextSlideImage();
         }, 5000); // Cambiar cada 5 segundos
-        return () => clearInterval(interval);
-    }, [currentIndex]);
+        const updateIntervalo = () => {
+            if (window.innerWidth < 640) {
+                setIntervalo(6)// Pantallas pequeñas (móviles)
+            } else if (window.innerWidth < 1024) {
+                setIntervalo(6); // Pantallas medianas (tablets)
+            } else {
+                setIntervalo(4); // Pantallas grandes (desktop)
+            }
+          };
+          updateIntervalo(); // Actualizar al cargar la página
+          window.addEventListener("resize", updateIntervalo);
+        return () => {
+                clearInterval(interval);
+                window.removeEventListener("resize", updateIntervalo);
+            };
+    }, [currentIndex, currentIndexImage]);
 
     // Función para ir a la siguiente diapositiva
     const nextSlide = (): void => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % opiniones.length);
+    };
+
+    const nextSlideImage = (): void => {
+        setCurrentIndexImage((prevIndex) => (prevIndex + 1) % intervalo);
     };
 
     // Función para ir a la diapositiva anterior
@@ -54,12 +95,12 @@ export default function DashBoardView() {
         <>
             {/* Hero Section */}
             <div className="text-[#F7F6F6] py-8 px-4">
+                <h1 className="pt-2 text-5xl font-bold mb-6 text-center pb-4 hidden lg:block">"La mejor calidad, al mejor precio"</h1>
                 <div className="container mx-auto flex flex-col md:flex-row items-center">
                     <div className="md:w-1/2 mb-8 md:mb-0">
-                        <h1 className="text-5xl font-bold mb-6">La mejor calidad, al mejor precio</h1>
-                        <p className="text-lg mb-6">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus repellat nostrum at
-                            culpa, voluptatem veniam adipisci fugiat magni libero facere.
+                        <h1 className="text-3xl font-bold mb-6">¡Renueva tu estilo con lo último en tendencias!</h1>
+                        <p className="text-lg mb-6 font-semibold">
+                            Descubre Sneakers que combinan confort, estilo y rendimiento con las últimas colecciones de calidad superior. Realizamos envíos a todo México, incluyendo entregas personales en Guadalajara. ¡Haz tu pedido hoy y disfruta de los Sneakers más actuales!
                         </p>
                     </div>
                     <div className="md:w-1/2 flex justify-center">
@@ -69,7 +110,9 @@ export default function DashBoardView() {
                             alt="Logo Principal"
                         />
                     </div>
+                    
                 </div>
+                
             </div>
 
             <div className="text-center">
@@ -78,16 +121,30 @@ export default function DashBoardView() {
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     }} >Ordenes realizadas</h2>
-
-                <div className="flex flex-wrap justify-center gap-12">
-                    <img src={example} alt="s" className="w-1/3 md:w-1/4 lg:w-1/5" />
-                    <img src={example} alt="s" className="w-1/3 md:w-1/4 lg:w-1/5" />
-                    <img src={example} alt="s" className="w-1/3 md:w-1/4 lg:w-1/5" />
-                    <img src={example} alt="s" className="w-1/3 md:w-1/4 lg:w-1/5" />
-                    <img src={example} alt="s" className="w-1/3 md:w-1/4 lg:w-1/5" />
-                    <img src={example} alt="s" className="w-1/3 md:w-1/4 lg:w-1/5" />
-
-                </div>
+                    <div
+                    className="relative overflow-hidden"
+                    onTouchStart={handleTouchStart}
+                    onTouchEnd={handleTouchEnd}
+                    >
+                        <div
+                        className="relative overflow-hidden"
+                        onTouchStart={handleTouchStart}
+                        onTouchEnd={handleTouchEnd}
+                        >   
+                        <div
+                            className="flex transition-transform duration-500"
+                            style={{ transform: `translateX(-${currentIndexImage * 100}%)` }}
+                        >
+                                <div className="min-w-full p-6 flex gap-12 items-center rounded-lg shadow-lg">                                
+                                { 
+                                    ordenes.map((orden, index) => (
+                                        <img key={index} src={orden.image} alt={orden.alt} className="w-1/3 md:w-1/4 lg:w-1/5" />
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>          
             </div>
 
             {/* Carrusel de Opiniones */}
@@ -150,6 +207,10 @@ export default function DashBoardView() {
                         &#8250;
                     </button>
                 </div>
+            </div>
+            
+            <div >
+                <h1 className="pt-2 text-3xl font-bold mb-6 text-center pb-4 block lg:hidden text-[#F7F6F6]">"La mejor calidad, al mejor precio"</h1>
             </div>
         </>
     );
