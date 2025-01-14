@@ -77,6 +77,10 @@ export default function DashBoardView() {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + opiniones.length) % opiniones.length);
     };
 
+    const prevSlideImage = (): void => {
+        setCurrentIndexImage((prevIndex) => (prevIndex - 1 + intervalo) % intervalo);
+    };
+
     // Manejo de deslizamiento táctil
     let touchStartX: number = 0;
     let touchEndX: number = 0;
@@ -89,6 +93,16 @@ export default function DashBoardView() {
         touchEndX = e.changedTouches[0].clientX;
         if (touchStartX - touchEndX > 50) nextSlide();
         if (touchStartX - touchEndX < -50) prevSlide();
+    };
+
+    const handleTouchStartOrder = (e: TouchEvent<HTMLDivElement>): void => {
+        touchStartX = e.targetTouches[0].clientX;
+    };
+
+    const handleTouchEndOrder = (e: TouchEvent<HTMLDivElement>): void => {
+        touchEndX = e.changedTouches[0].clientX;
+        if (touchStartX - touchEndX > 50) nextSlideImage();
+        if (touchStartX - touchEndX < -50) prevSlideImage();
     };
 
     return (
@@ -121,15 +135,11 @@ export default function DashBoardView() {
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     }} >Ordenes realizadas</h2>
-                    <div
-                    className="relative overflow-hidden"
-                    onTouchStart={handleTouchStart}
-                    onTouchEnd={handleTouchEnd}
-                    >
+
                         <div
                         className="relative overflow-hidden"
-                        onTouchStart={handleTouchStart}
-                        onTouchEnd={handleTouchEnd}
+                        onTouchStart={handleTouchStartOrder}
+                        onTouchEnd={handleTouchEndOrder}
                         >   
                         <div
                             className="flex transition-transform duration-500"
@@ -143,13 +153,12 @@ export default function DashBoardView() {
                                 }
                             </div>
                         </div>
-                    </div>
                 </div>          
             </div>
 
             {/* Carrusel de Opiniones */}
             <div className="container mx-auto py-16 px-4 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold inline-block mb-10 text-[#F7F6F6]"style={{
+                <h2 className="text-3xl md:text-4xl font-bold inline-block mb-4 p-6 pt-2 text-[#F7F6F6]"style={{
                     backgroundImage: `url(${fondo_titulo})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',

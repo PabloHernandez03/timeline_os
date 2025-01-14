@@ -29,11 +29,11 @@ export default function NavMenu() {
             <Link
               to='/catalogo'
               className='block p-2 hover:text-[#050404] transition-transform duration-300 ease-in-out transform hover:scale-110 '
-            >Catalogo</Link>
+            >Catálogo</Link>
             <Link
               to='/contacto'
               className='block p-2 hover:text-[#050404] transition-transform duration-300 ease-in-out transform hover:scale-110 '
-            >Contactanos</Link>
+            >Contáctanos</Link>
             <Link
               to='/pedidos'
               className='block p-2 hover:text-[#050404] transition-transform duration-300 ease-in-out transform hover:scale-110'
