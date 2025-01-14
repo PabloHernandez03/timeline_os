@@ -4,21 +4,21 @@ interface Resource {
 }
 
 const resources: Resource[] = [
-  { type: "image", src: "/img/pedidos/pedido01.jpg" },
+  { type: "image", src: "/img/pedidos/pedido01.webp" },
   { type: "video", src: "/img/pedidos/pedido02.mp4" },
   { type: "video", src: "/img/pedidos/pedido03.mp4" },
   { type: "video", src: "/img/pedidos/pedido04.mp4" },
-  { type: "image", src: "/img/pedidos/pedido05.jpg" },
+  { type: "image", src: "/img/pedidos/pedido05.webp" },
   { type: "video", src: "/img/pedidos/pedido06.mp4" },
   { type: "video", src: "/img/pedidos/pedido07.mp4" },
-  { type: "image", src: "/img/pedidos/pedido08.jpg" },
-  { type: "image", src: "/img/pedidos/pedido09.jpg" },
+  { type: "image", src: "/img/pedidos/pedido08.webp" },
+  { type: "image", src: "/img/pedidos/pedido09.webp" },
   { type: "video", src: "/img/pedidos/pedido10.mp4" },
   { type: "video", src: "/img/pedidos/pedido11.mp4" },
   { type: "video", src: "/img/pedidos/pedido12.mp4" },
-  { type: "image", src: "/img/pedidos/pedido13.jpg" },
+  { type: "image", src: "/img/pedidos/pedido13.webp" },
   { type: "video", src: "/img/pedidos/pedido14.mp4" },
-  { type: "image", src: "/img/pedidos/pedido15.jpg" },
+  { type: "image", src: "/img/pedidos/pedido15.webp" },
 ];
 
 const PedidosView: React.FC = () => {
