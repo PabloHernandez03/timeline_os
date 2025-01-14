@@ -158,7 +158,7 @@ export default function DashBoardView() {
 
             {/* Carrusel de Opiniones */}
             <div className="container mx-auto py-16 px-4 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold inline-block mb-4 p-6 pt-2 text-[#F7F6F6]"style={{
+                <h2 className="text-3xl md:text-4xl font-bold inline-block mb-4 sm:p-8 sm:pt-2 text-[#F7F6F6]"style={{
                     backgroundImage: `url(${fondo_titulo})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',

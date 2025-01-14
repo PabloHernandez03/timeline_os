@@ -8,7 +8,7 @@ export default function ContactoView() {
   return (
     <>
       <div className='text-center text-[#F7F6F6]'>
-        <h1 className="text-4xl font-bold p-8 pt-2 inline-block"
+        <h1 className="text-4xl font-bold sm:p-8 sm:pt-2 inline-block"
           style={{
             backgroundImage: `url(${fondo_titulo})`,
             backgroundSize: 'cover',
