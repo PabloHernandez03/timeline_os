@@ -72,13 +72,6 @@ const timelineData: TimelineEvent[] = [
         image: "https://upload.wikimedia.org/wikipedia/commons/2/26/CPM-86.png"
     },
     {
-        year: "1979",
-        title: "Apple DOS",
-        description: "Apple lanza Apple DOS, el sistema operativo para el Apple II.",
-        longDescription: "Apple DOS fue el primer sistema operativo para el Apple II, una de las primeras computadoras personales exitosas. Aunque era primitivo en comparación con los sistemas operativos modernos, sentó las bases para el desarrollo de sistemas operativos más avanzados de Apple, como ProDOS y macOS.",
-        image: "https://upload.wikimedia.org/wikipedia/commons/9/9b/Upgraded_to_DOS_3.3_%286518689667%29.jpg"
-    },
-    {
         year: "1980s",
         title: "Computadoras personales, Interfaces gráficas y Redes",
         description: "La década de 1980 fue testigo del auge de las computadoras personales, las interfaces gráficas de usuario y las redes de computadoras como TCP/IP.",
@@ -91,6 +84,13 @@ const timelineData: TimelineEvent[] = [
         description: "Microsoft lanza MS-DOS, el sistema operativo para IBM PC.",
         longDescription: "MS-DOS (Microsoft Disk Operating System) fue el sistema operativo estándar para las computadoras personales IBM PC y compatibles. Aunque carecía de una interfaz gráfica, su eficiencia y compatibilidad lo hicieron popular en la década de 1980.",
         image: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Msdos-icon.svg"
+    },
+    {
+        year: "1984",
+        title: "Mac OS 1.0",
+        description: "Apple lanza Macintosh System Software, precursor de Mac OS.",
+        longDescription: "Macintosh System Software fue el sistema operativo de Apple para la computadora Macintosh. Introdujo una interfaz gráfica de usuario (GUI) revolucionaria y características innovadoras, como el sistema de archivos Hierarchical File System (HFS). Fue el precursor de Mac OS, el sistema operativo actual de Apple.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/f/fb/Mac_OS-based_free_icon.svg"
     },
     {
         year: "1985",
