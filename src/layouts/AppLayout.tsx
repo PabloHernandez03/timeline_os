@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom"
 import Logo from "@/components/Logo"
-import NavMenu from "@/components/NavMenu"
-import fondo from "/img/fondo.svg"
+
 export default function AppLayout() {
     return(
         <>
@@ -11,11 +10,10 @@ export default function AppLayout() {
                         <Logo />
                     </div>
                     
-                    <NavMenu />
                 </div>
             </header>
 
-            <section style={{backgroundImage: `url(${fondo})`}} className="max-w-screen-2xl mx-auto p-5 pt-10 pb-10">
+            <section className="max-w-screen-2xl mx-auto p-5 pt-10 pb-10">
                 <Outlet />
             </section>
 
